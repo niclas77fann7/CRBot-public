@@ -1,5 +1,5 @@
 <!-- PROJECT LOGO -->
-<h3 align="center">Clash Royale Bot (UNFINISHED README)</h3>
+<h3 align="center">Clash Royale Bot unfinished README</h3>
 
   <p align="center">
     Bot that plays Clash Royale and learns by playing games
@@ -32,7 +32,6 @@
       </ul>
     </li>
     <li><a href="#usage">Usage</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
@@ -45,12 +44,8 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-Here's a blank template to get started. To avoid retyping too much info, do a search and replace with your text editor for the following: `github_username`, `repo_name`, `twitter_handle`, `linkedin_username`, `email_client`, `email`, `project_title`, `project_description`, `project_license`
-
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
 
 ### Built With
 
@@ -68,24 +63,49 @@ Here's a blank template to get started. To avoid retyping too much info, do a se
 
 ### Prerequisites
 
-* Windows (since thats the only OS it works on right now)
-* Python
-* Docker
+* Windows (since that's the only OS it works on right now)
+* VSCode (unless you're more familiar with other code editors)
+* [Docker](https://www.docker.com/)
+* [Roboflow Account](https://www.roboflow.com/)
+* [Python 3.12](https://www.python.org/downloads/windows/)
+* inference_sdk
+  ```
+  pip install inference-sdk
+  ```
+* PyTorch
+  ```
+  pip install torch
+  ```
+* PyAutoGUI
+  ```
+  pip install PyAutoGUI
+  ```
+* NumPy
+  ```
+  pip install numpy
+  ```
   
 ### Installation
 
-1. Get a free API Key at [https://example.com](https://example.com)
+1. Create a Roboflow account as well as a workspace, then get your API key
+![roboflow-tutorial](https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExNG1uNmtiaTAzamVvNnQwc2k3NDQzOXhzcmhxc2prZTBzM3U3YWY5YyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/1KLeC2gw8pimdhH61C/giphy.gif)
 2. Clone the repo
    ```sh
-   git clone https://github.com/github_username/repo_name.git
+   git clone https://github.com/krazyness/CRBot-public.git
    ```
-3. Install NPM packages
-   ```sh
-   npm install
-   ```
-4. Enter your API in `config.js`
+3. Inside of env.py, set both api_key variables to your Roboflow private API key
    ```js
-   const API_KEY = 'ENTER YOUR API';
+   def setup_roboflow(self):
+        return InferenceHTTPClient(
+            api_url="http://localhost:9001",
+            api_key="ENTER-KEY-HERE"
+        )
+
+    def setup_card_roboflow(self):
+        return InferenceHTTPClient(
+            api_url="http://localhost:9001",
+            api_key="ENTER-SAME-KEY-HERE"
+        )
    ```
 5. Change git remote url to avoid accidental pushes to base project
    ```sh
