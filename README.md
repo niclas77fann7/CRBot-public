@@ -114,7 +114,7 @@
 
 ![Workspace-Fork-Tutorial](https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExM2g4NTZ2MDlkM3JpdGl5emgxNHc3ejJudTRiMDFnbXFkNmxnNzgyeSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/94yt100mNmhRIPRu3d/giphy.gif)
 
-5. Get the workspace-name as shown in the video, and paste it into all lines with the format of
+5. Get the workspace-name as shown in the video, and paste it into the quotations all lines with the format of
    ```js
    workspace_name="workspace-blahblahblah"
    ```
@@ -193,6 +193,7 @@ Project Link: [https://github.com/krazyness/CRBot-public](https://github.com/kra
 ## Acknowledgments
 
 * [Best README Template](https://github.com/othneildrew/Best-README-Template)
+* Mr. Foster, AP Computer Science teacher
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
