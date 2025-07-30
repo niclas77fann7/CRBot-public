@@ -145,9 +145,7 @@
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
-
-_For more examples, please refer to the [Documentation](https://example.com)_
+![Demo](https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExaXFtZmh1eG10amdidGhuMXBlb3dyaWZ3MjB5a2d6ZXluYXN6MTY0ZSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/SFDKIvtoRL1Og4S7fn/giphy.gif)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
