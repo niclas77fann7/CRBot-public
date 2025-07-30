@@ -44,6 +44,9 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
+A Python-based Clash Royale AI bot that learns and improves through gameplay. This project aims to help others understand machine learning, reinforcement learning, and game automation in a practical context.
+
+*(Disclaimer: This project is not affiliated with Supercell. Use at your own risk—automated gameplay may violate Clash Royale's Terms of Service.)*
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
