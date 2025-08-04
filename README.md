@@ -97,19 +97,15 @@ A Python-based Clash Royale AI bot that learns and improves through gameplay. Th
    ```sh
    git clone https://github.com/krazyness/CRBot-public.git
    ```
-3. Inside of env.py, set both api_key variables to your Roboflow private API key (I had two different methods that did the same thing because I had two different workspaces)
-   ```js
-   def setup_roboflow(self):
-        return InferenceHTTPClient(
-            api_url="http://localhost:9001",
-            api_key="ENTER-KEY-HERE"
-        )
-
-    def setup_card_roboflow(self):
-        return InferenceHTTPClient(
-            api_url="http://localhost:9001",
-            api_key="ENTER-SAME-KEY-HERE"
-        )
+3. Set up your environment variables:
+   - Copy `.env.example` to `.env`
+   - Edit `.env` and replace `your_roboflow_api_key_here` with your actual Roboflow private API key
+   ```bash
+   # Copy the example file
+   cp .env.example .env
+   
+   # Edit .env and add your API key
+   ROBOFLOW_API_KEY=your_actual_api_key_here
    ```
 4. Fork both workflows:
 [Troop Detection](https://app.roboflow.com/workflows/embed/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ3b3JrZmxvd0lkIjoiTEx3TjlnOEduenBjWmVYSktKYzEiLCJ3b3Jrc3BhY2VJZCI6Ik5vVUlkM3gyYWRSU0tqaURrM0ZMTzlBSmE1bzEiLCJ1c2VySWQiOiJOb1VJZDN4MmFkUlNLamlEazNGTE85QUphNW8xIiwiaWF0IjoxNzUzODgxNTcyfQ.-ZO7pqc3mBX6W49-uThUSBLdUaCRzM9I8exfEu6-lo8)

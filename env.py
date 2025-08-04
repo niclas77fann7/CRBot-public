@@ -3,8 +3,12 @@ import time
 import os
 import pyautogui
 import threading
+from dotenv import load_dotenv
 from Actions import Actions
 from inference_sdk import InferenceHTTPClient
+
+# Load environment variables from .env file
+load_dotenv()
 
 MAX_ENEMIES = 10
 MAX_ALLIES = 10
@@ -39,15 +43,23 @@ class ClashRoyaleEnv:
         self.match_over_detected = False
 
     def setup_roboflow(self):
+        api_key = os.getenv('ROBOFLOW_API_KEY')
+        if not api_key:
+            raise ValueError("ROBOFLOW_API_KEY environment variable is not set. Please check your .env file.")
+        
         return InferenceHTTPClient(
             api_url="http://localhost:9001",
-            api_key="########"
+            api_key=api_key
         )
 
     def setup_card_roboflow(self):
+        api_key = os.getenv('ROBOFLOW_API_KEY')
+        if not api_key:
+            raise ValueError("ROBOFLOW_API_KEY environment variable is not set. Please check your .env file.")
+        
         return InferenceHTTPClient(
             api_url="http://localhost:9001",
-            api_key="########"
+            api_key=api_key
         )
 
     def reset(self):
