@@ -3,8 +3,12 @@ import time
 import os
 import pyautogui
 import threading
+from dotenv import load_dotenv
 from Actions import Actions
 from inference_sdk import InferenceHTTPClient
+
+# Load environment variables from .env file
+load_dotenv()
 
 MAX_ENEMIES = 10
 MAX_ALLIES = 10
@@ -39,15 +43,23 @@ class ClashRoyaleEnv:
         self.match_over_detected = False
 
     def setup_roboflow(self):
+        api_key = os.getenv('ROBOFLOW_API_KEY')
+        if not api_key:
+            raise ValueError("ROBOFLOW_API_KEY environment variable is not set. Please check your .env file.")
+        
         return InferenceHTTPClient(
             api_url="http://localhost:9001",
-            api_key="########"
+            api_key=api_key
         )
 
     def setup_card_roboflow(self):
+        api_key = os.getenv('ROBOFLOW_API_KEY')
+        if not api_key:
+            raise ValueError("ROBOFLOW_API_KEY environment variable is not set. Please check your .env file.")
+        
         return InferenceHTTPClient(
             api_url="http://localhost:9001",
-            api_key="########"
+            api_key=api_key
         )
 
     def reset(self):
@@ -150,8 +162,13 @@ class ClashRoyaleEnv:
     def _get_state(self):
         self.actions.capture_area(self.screenshot_path)
         elixir = self.actions.count_elixir()
+        
+        workspace_name = os.getenv('WORKSPACE_TROOP_DETECTION')
+        if not workspace_name:
+            raise ValueError("WORKSPACE_TROOP_DETECTION environment variable is not set. Please check your .env file.")
+        
         results = self.rf_model.run_workflow(
-            workspace_name="workspace-mck69",
+            workspace_name=workspace_name,
             workflow_id="detect-count-and-visualize",
             images={"image": self.screenshot_path}
         )
@@ -264,9 +281,13 @@ class ClashRoyaleEnv:
             print("\nTesting individual card predictions:")
 
             cards = []
+            workspace_name = os.getenv('WORKSPACE_CARD_DETECTION')
+            if not workspace_name:
+                raise ValueError("WORKSPACE_CARD_DETECTION environment variable is not set. Please check your .env file.")
+            
             for card_path in card_paths:
                 results = self.card_model.run_workflow(
-                    workspace_name="clash-royale-841nt",
+                    workspace_name=workspace_name,
                     workflow_id="custom-workflow",
                     images={"image": card_path}
                 )
@@ -312,8 +333,13 @@ class ClashRoyaleEnv:
 
     def _count_enemy_princess_towers(self):
         self.actions.capture_area(self.screenshot_path)
+        
+        workspace_name = os.getenv('WORKSPACE_TROOP_DETECTION')
+        if not workspace_name:
+            raise ValueError("WORKSPACE_TROOP_DETECTION environment variable is not set. Please check your .env file.")
+        
         results = self.rf_model.run_workflow(
-            workspace_name="workspace-mck69",
+            workspace_name=workspace_name,
             workflow_id="detect-count-and-visualize",
             images={"image": self.screenshot_path}
         )
