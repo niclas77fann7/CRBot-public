@@ -259,8 +259,8 @@ class ClashRoyaleEnv:
 
         # Sum all enemy positions (not just the first)
         enemy_positions = state[1 + 2 * MAX_ALLIES:]  # All enemy x1, y1, x2, y2, ...
-        enemy_presence = sum(enemy_positions)
-
+        # enemy_presence = sum(enemy_positions)
+        enemy_presence = sum(enemy_positions[1::2]) # Only y coords so it does not bias left/right side
         reward = -enemy_presence
 
         # Elixir efficiency: reward for spending elixir if it reduces enemy presence
